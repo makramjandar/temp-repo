@@ -10,9 +10,9 @@ jobs:
         shell: bash
         run: |
 
-          APP="-H 'Accept: application/vnd.github+json'"
-          AUT="-H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'"
-          VER="-H 'X-GitHub-Api-Version: 2022-11-28'"
+          APP="'Accept: application/vnd.github+json'"
+          AUT="'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'"
+          VER="'X-GitHub-Api-Version: 2022-11-28'"
           URL="https://api.github.com/repos/makramjandar/temp-repo/environments"
 
           echo "curl -L $APP $AUT $VER $URL"
@@ -20,7 +20,7 @@ jobs:
           #CMD() { curl -L "$APP" "$AUT" "$VER" "$URL" ;}
           #CMD
 
-          CMD2=('curl' '-L' "$APP" "$AUT" "$VER" "$URL")
+          CMD2=('curl' '-L' '-H' "$APP" '-H' "$AUT" '-H' "$VER" "$URL")
           "${CMD2[@]}"
       
       - id: list-envs
