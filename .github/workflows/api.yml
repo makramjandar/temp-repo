@@ -15,8 +15,11 @@ jobs:
           VER="-H 'X-GitHub-Api-Version: 2022-11-28'"
           URL="https://api.github.com/repos/makramjandar/temp-repo/environments"
 
-          CMD=('curl' '-L' "$APP" "$AUT" "$VER" "$URL")
-          "${CMD[@]}"
+          CMD() { curl -L "$APP" "$AUT" "$VER" "$URL" ;}
+          CMD
+
+          #CMD=('curl' '-L' "$APP" "$AUT" "$VER" "$URL")
+          #"${CMD[@]}"
       
       - id: list-envs
         shell: bash
