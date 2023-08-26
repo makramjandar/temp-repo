@@ -21,17 +21,8 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
-      - uses: makramjandar/action-github-branch-name@v1
+      
+      - id: test-branch-name
+        uses: makramjandar/action-github-branch-name@v1
 
-      - name: test-action
-        run: echo "${{ steps.extract_branch.outputs.branch }}"
-        
-      - name: test-echo
-        run: echo "+++++++++++++++++++++++++++++++++++++++++++++"
-
-      - name: x branch name
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-        id: test_branch
-
-      - name: test-action
-        run: echo "${{ steps.test_branch.outputs.branch-name }}"
+      - run: echo ${{ steps.test-branch-name.outputs.branch-name }}
