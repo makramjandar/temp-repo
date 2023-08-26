@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: makramjandar/action-github-branch-name@v1
+      - uses: makramjandar/action-github-branch-name@main
 
       - name: test
         run: echo ${{ steps.extract_branch.outputs.branch }}
