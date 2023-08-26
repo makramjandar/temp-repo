@@ -20,7 +20,7 @@ jobs:
           #CMD() { curl -L "$APP" "$AUT" "$VER" "$URL" ;}
           #CMD
 
-          CMD2=('curl -L' "$APP" "$AUT" "$VER" "$URL")
+          CMD2=('curl' '-L' "$APP" "$AUT" "$VER" "$URL")
           "${CMD2[@]}"
       
       - id: list-envs
