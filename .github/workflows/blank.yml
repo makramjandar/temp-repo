@@ -24,5 +24,8 @@ jobs:
       - uses: makramjandar/action-github-branch-name@main
 
       - name: test-action
-        run: echo ${{ steps.extract_branch.outputs.branch }}
+        run: echo "${{ steps.extract_branch.outputs.branch }}"
+        
+      - name: test-action
+        run: echo "+++++++++++++++++++++++++++++++++++++++++++++"
         
