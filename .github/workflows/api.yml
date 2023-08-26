@@ -16,9 +16,6 @@ jobs:
 
           CMD=('curl -L' "$ACCEPT" "$AUTH" "$VER")
           "${CMD[@]}"
-
-          curl -L $ACCEPT $AUTH $API
-
       
       - id: list-envs
         shell: bash
