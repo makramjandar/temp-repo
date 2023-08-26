@@ -21,7 +21,7 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
-      - uses: makramjandar/action-github-branch-name@main
+      - uses: makramjandar/action-github-branch-name@v1
 
       - name: test-action
         run: echo "${{ steps.extract_branch.outputs.branch }}"
@@ -34,4 +34,4 @@ jobs:
         id: test_branch
 
       - name: test-action
-        run: echo "${{ steps.test_branch.outputs.branch }}"
+        run: echo "${{ steps.test_branch.outputs.branch-name }}"
