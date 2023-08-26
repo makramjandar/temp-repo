@@ -26,9 +26,9 @@ jobs:
             https://api.github.com/repos/makramjandar/temp-repo/environments
           )"
 
-          echo $API
+          echo "$API"
 
-          echo "envs=$(echo $API | jq '.environments[].name')" >> $GITHUB_OUTPUT
+          echo "envs=$(echo "$API" | jq '.environments[].name')" >> $GITHUB_OUTPUT
 
       - run: echo random-number ${{ steps.list-envs.outputs.envs }}
         shell: bash
