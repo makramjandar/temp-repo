@@ -10,11 +10,12 @@ jobs:
         shell: bash
         run: |
 
-          ACCEPT="-H 'Accept: application/vnd.github+json'"
-          AUTH="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'"
+          APP="-H 'Accept: application/vnd.github+json'"
+          AUT="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'"
           VER="-H 'X-GitHub-Api-Version: 2022-11-28'"
+          URL="https://api.github.com/repos/makramjandar/temp-repo/environments"
 
-          CMD=('curl' '-L' "$ACCEPT" "$AUTH" "$VER")
+          CMD=('curl' '-L' "$APP" "$AUT" "$VER" "$URL")
           "${CMD[@]}"
       
       - id: list-envs
