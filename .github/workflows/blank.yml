@@ -26,6 +26,12 @@ jobs:
       - name: test-action
         run: echo "${{ steps.extract_branch.outputs.branch }}"
         
-      - name: test-action
+      - name: test-echo
         run: echo "+++++++++++++++++++++++++++++++++++++++++++++"
-        
+
+      - name: x branch name
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: test_branch
+
+      - name: test-action
+        run: echo "${{ steps.test_branch.outputs.branch }}"
